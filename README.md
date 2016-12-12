@@ -17,8 +17,7 @@ var logger zap.Logger
 
 func init() {
     logger = zap.New(zap.NewTextEncoder(zap.TextTimeFormat(time.RFC3339)), zap.Output(os.Stdout))
-    grpcLogger := grpczap.New(logger)
-    grpclog.SetLogger(grpcLogger)
+    grpclog.SetLogger(grpczap.New(logger))
 }
 
 func main() {
