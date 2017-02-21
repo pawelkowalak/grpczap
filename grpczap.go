@@ -3,14 +3,14 @@ package grpczap
 import (
 	"fmt"
 
-	"github.com/uber-go/zap"
+	"go.uber.org/zap"
 )
 
 type logger struct {
-	log zap.Logger
+	log *zap.Logger
 }
 
-func New(log zap.Logger) logger {
+func New(log *zap.Logger) logger {
 	return logger{log: log}
 }
 
