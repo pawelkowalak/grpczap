@@ -8,15 +8,15 @@ Typical usage:
 package main
 
 import (
-    "github.com/uber-go/zap"
+    "go.uber.org/zap"
     "google.golang.org/grpc"
     "google.golang.org/grpc/grpclog"
 )
 
-var logger zap.Logger
+var logger *zap.Logger
 
 func init() {
-    logger = zap.New(zap.NewTextEncoder(zap.TextTimeFormat(time.RFC3339)), zap.Output(os.Stdout))
+    logger, _ = zap.NewDevelopment()
     grpclog.SetLogger(grpczap.New(logger))
 }
 
